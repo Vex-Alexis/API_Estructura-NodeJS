@@ -1,0 +1,22 @@
+# Módulos de Node.js
+node_modules/
+
+# Archivo de configuración de npm
+package-lock.json
+
+# Dependencias específicas del sistema operativo
+npm-debug.log
+yarn-error.log
+
+# Archivos generados en tiempo de ejecución
+__pycache__/
+.DS_Store
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+
+# Entorno de desarrollo
+.env
