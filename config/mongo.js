@@ -26,15 +26,15 @@ const dbConnect = async () => {
 
     try {
         await mongoose.connect(DB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            //useNewUrlParser: true,
+            //useUnifiedTopology: true
         });
 
-        console.log('Conexión exitosa a la base de datos');
+        console.log('***** Conexión exitosa a la base de datos *****');
 
         // Aquí puedes realizar acciones adicionales después de la conexión
     } catch (error) {
-        console.error('Error de conexión a la base de datos:', error);
+        console.error('***** Error de conexión a la base de datos: ', error);
         // Manejar el error según tus necesidades
     }
 };
