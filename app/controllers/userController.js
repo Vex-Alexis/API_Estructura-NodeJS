@@ -2,7 +2,7 @@ const { httpError } = require('../helpers/handleError')
 const userModel = require('../models/userModel')
 
 
-const getItems = async (req, res) => {
+const getAllUsers = async (req, res) => {
     try{
         const listAll = await userModel.find({})
         res.send({ data: listAll })
@@ -12,7 +12,7 @@ const getItems = async (req, res) => {
     }
 }
 
-const getItem = async (req, res) => {
+const getUserById = async (req, res) => {
     try {
         const userId = req.params.id;
         const user = await userModel.findById(userId);
@@ -28,7 +28,7 @@ const getItem = async (req, res) => {
 }
 
 
-const createItem = async (req, res) => {
+const createUser = async (req, res) => {
     try{
         const { fullName, age, email, password, createdAt } = req.body
         const resDetail = await userModel.create({
@@ -41,7 +41,7 @@ const createItem = async (req, res) => {
     }
 }
 
-const updateItem = async (req, res) => {
+const updateUser = async (req, res) => {
     try {
         const userId = req.params.id;
         const { fullName, age, password } = req.body;
@@ -65,7 +65,7 @@ const updateItem = async (req, res) => {
 }
 
 
-const deleteItem = async (req, res) => {
+const deleteUser = async (req, res) => {
     try {
         const userId = req.params.id;
         const deletedUser = await userModel.findByIdAndDelete(userId)
@@ -75,10 +75,10 @@ const deleteItem = async (req, res) => {
         }
     
         res.json({ message: 'Usuario eliminado con éxito', deletedUser });
-      } catch (e) {
+    } catch (e) {
         httpError(res, e);
-      }
+    }
 }
 
 
-module.exports = { getItems, getItem, createItem, updateItem, deleteItem }
+module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser }
